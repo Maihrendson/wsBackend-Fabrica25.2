@@ -2,7 +2,7 @@ from django.db import models
 
 class Usuario(models.Model):
         #Cria número da Tabela usuário
-    number = models.CharField(max_length=13, primary_key=True, default= '')
+    number = models.CharField(max_length=11, primary_key=True, default= '')
         #Cria nome da Tabela usuário
     name = models.CharField(max_length=255, default= '')
         #Cria email da Tabela usuário
