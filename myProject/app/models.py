@@ -11,4 +11,12 @@ class Usuario(models.Model):
     #Define como o objeto será representado como string no Django
     def __str__(self):
         return f"Nome: {self.name} | Email: {self.email} | Número: {self.number}"
+    
+class Agendamento(models.Model):
 
+    user = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='agendamentos')
+    date = models.DateTimeField()
+    service = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f" Cliente: {self.user.name} | Data: {self.date} | Serviço: {self.service}"
