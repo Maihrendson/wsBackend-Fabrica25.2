@@ -17,8 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import include
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app.urls')),  # Inclui as rotas do app principal
+    path('usuarios/', views.listar_usuarios, name='listar_usuarios'),
+    path('usuarios/criar/', views.criar_usuario, name='criar_usuario'),
+    path('usuarios/<str:number>/', views.obter_usuario, name='obter_usuario'),
+    path('usuarios/<str:number>/atualizar/', views.atualizar_usuario, name='atualizar_usuario'),
+    path('usuarios/<str:number>/deletar/', views.deletar_usuario, name='deletar_usuario'),
 ]
